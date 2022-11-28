@@ -10,10 +10,10 @@ env_path = Path('.')/'.env'
 load_dotenv(dotenv_path=env_path)
 
 # Reddit get hot posts from r/hauntedchocolatier
-subreddit = 'hauntedchocolatier'
-limit = 3
+subreddit = 'kpopthoughts'
+limit = 6
 timeframe = 'month' #hour, day, week, month, year, all
-listing = 'new' # controversial, best, hot, new, random, rising, top
+listing = 'hot' # controversial, best, hot, new, random, rising, top
  
 def get_reddit(subreddit,listing,limit,timeframe):
     try:
@@ -40,7 +40,7 @@ def post_tweet(r, client):
         new_twt = f'''
         {twt_title}
 
-[🗨] {(twt_selftext[:175] + '...') if len(twt_selftext)>178 else twt_selftext}
+[💭] {(twt_selftext[:180] + '...') if len(twt_selftext)>183 else twt_selftext}
 
         {post['data']['url']}
         '''
